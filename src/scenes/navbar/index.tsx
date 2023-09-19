@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Logo from "@/assets/Logo.png"
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 type Props = {
   selectedPage: SelectedPage;
@@ -10,7 +11,9 @@ type Props = {
 }
 const Navbar = ({selectedPage, setSelectedPage}: Props) => {
   const flexBetween = "flex items-center justify-between"; // common UI thing to separate by 2 ends, rest empty space in between 
-  
+  const isAboveMediaScreens = useMediaQuery("(min-width: 1060px)");
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+
   return (
     <nav>
       <div // outer div
@@ -31,31 +34,42 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
             <img alt="logo" src={Logo} />
 
           {/*right side*/}
-          <div className={`${flexBetween} w-full`}>
-            <div className={`${flexBetween} gap-8 text-sm`}>
-              <Link 
-                page="Home"
-                selectedPage={selectedPage}
-                setSelectedPage={setSelectedPage}/>
-              <Link 
-                page="Benefits"
-                selectedPage={selectedPage}
-                setSelectedPage={setSelectedPage}/>
-              <Link 
-                page="Our classes"
-                selectedPage={selectedPage}
-                setSelectedPage={setSelectedPage}/>
-              <Link 
-                page="Contact Us"
-                selectedPage={selectedPage}
-                setSelectedPage={setSelectedPage}/>
-            </div>
-          </div>
+          {isAboveMediaScreens ? (
+            <div className={`${flexBetween} w-full`}>
+              <div className={`${flexBetween} gap-8 text-sm`}>
+                <Link 
+                  page="Home"
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}/>
+                <Link 
+                  page="Benefits"
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}/>
+                <Link 
+                  page="Our classes"
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}/>
+                <Link 
+                  page="Contact Us"
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}/>
+              </div>
+            
 
-          <div className={`${flexBetween} gap-8`}>
-            <p>Sign In</p>
-            <button>Become a Member</button>
+            <div className={`${flexBetween} gap-8`}>
+              <p>Sign In</p>
+              <button>Become a Member</button>
+            </div>
+          
           </div>
+          ) : (
+            <button
+              className="rounded-full bg-secondary-500 p-2"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              <Bars3Icon className="h-6 w-6 text-white"/>
+            </button>
+          )}         
           </div>
         </div>
       </div>
