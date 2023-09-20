@@ -23,14 +23,15 @@ const Home = ({setSelectedPage}: Props) => {
         id="home"
         className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
             {/* {Image and main header} */}
-            <div>
-                <div>
-                    {/* Main Header */}
-                
+            <div className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6">
+                {/* {For bigger screens allign flexibly  mx - center by x, items-center - center by y} */}
+                {/* Main Header */}
+                <div className="z-10 mt-32 md:basis-3/5"> 
+                    
                     {/* Headings */}
-                    <div>
-                        <div>
-                            <div>
+                    <div className="md:-mt-20">
+                        <div className="relative">
+                            <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1]  md:before:content-evolvetext">
                                 <img alt="home-page-text" src={HomePageText}/>
                             </div>
                         </div>
@@ -43,7 +44,7 @@ const Home = ({setSelectedPage}: Props) => {
                     </div>
 
                     {/* {Actions} */}
-                    <div>
+                    <div className="mt-8 flex items-center gap-8 ">
                         <ActionButton setSelectedPage={setSelectedPage}>
                             Join Now
                         </ActionButton>
@@ -58,16 +59,16 @@ const Home = ({setSelectedPage}: Props) => {
                 </div>
 
                 {/* {Image} */}
-                <div>
+                <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end">
                     <img alt="home-pageGraphic" src={HomePageGraphic} />
                 </div>
             </div>
 
             {/* Sponsors */}
             {isAboveMediumScreens && (
-                <div>
-                    <div>
-                        <div>
+                <div className="h-[150px] w-full bg-primary-100 py-10">
+                    <div className="mx-auto w-5/6">
+                        <div className="flex w-3/5 items-center justify-between gap-8">
                             <img alt="redbull-sponsor" src={SponsorRedBull}/>
                             <img alt="forbes-sponsor" src={SponsorForbes}/>
                             <img alt="fortune-sponsor" src={SponsorFortune}/>
