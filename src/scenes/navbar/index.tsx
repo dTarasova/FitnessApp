@@ -7,18 +7,20 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 
 type Props = {
+  isTopOfPage: boolean;
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
 }
-const Navbar = ({selectedPage, setSelectedPage}: Props) => {
+const Navbar = ({isTopOfPage, selectedPage, setSelectedPage}: Props) => {
   const flexBetween = "flex items-center justify-between"; // common UI thing to separate by 2 ends, rest empty space in between 
   const isAboveMediaScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow"
 
   return (
     <nav>
       <div // outer div
-        className={`${flexBetween} fixed top-0 z-30 w-full py-6`} 
+        className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`} 
         //fixed - navbar always at the top, 
         //z-30 (not overwritten by anything, always on top 
         // w-full - takes full width 
