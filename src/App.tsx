@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import Navbar from "@/scenes/navbar/index.tsx";
-import {SelectedPage} from "@/shared/types.ts"
+import {SelectedPage} from "@/shared/types.ts";
+import Home from './scenes/home';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}
         />
+        <Home setSelectedPage={setSelectedPage}/>
       </div>
   )
 }
