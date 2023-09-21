@@ -104,15 +104,34 @@ const Benefits = ({setSelectedPage}: Props) => {
                     <div className="relative">
                         <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
                             {/* {image is behind the text} */}
-                            <HText>
-                                MILLIONS OF HAPPY MEMBERS GETTIG{" "}
-                                <span className="text-primary-500">FIT</span>
-                            </HText>
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.5 }}
+                                transition={{ duration: 0.5 }}
+                                variants={{
+                                    hidden: { opacity: 0, x: 50 },
+                                    visible: { opacity: 1, x: 0 },
+                            }}
+                                >
+                                <HText>
+                                    MILLIONS OF HAPPY MEMBERS GETTIG{" "}
+                                    <span className="text-primary-500">FIT</span>
+                                </HText>
+                            </motion.div>
                         </div>
                     </div>
 
                     {/* {description} */}
-                    <div>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        variants={{
+                            hidden: { opacity: 0, x: 50 },
+                            visible: { opacity: 1, x: 0 },
+                        }}>
                         <p className="my-5">
                             Don't wait to start your fitness journey with us. Whether you're new to exercise or a seasoned 
                             fitness enthusiast, our fitness center is the perfect place to achieve your goals. 
@@ -125,7 +144,7 @@ const Benefits = ({setSelectedPage}: Props) => {
                             and reaching your full potential. We can't wait to welcome you to our fitness center family!
                             Contact us now to get started on your path to a happier and healthier you.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* {Button} */}
                     <div className="relative mt-16">
