@@ -7,6 +7,8 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Benefit from "./Benefit";
+import ActionButton from "@/shared/ActionButton";
+import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png"
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -86,6 +88,57 @@ const Benefits = ({setSelectedPage}: Props) => {
                 ))}
 
             </motion.div>
+
+            {/* {Graphics and description} */}
+            <div className="mt-16 items-center justify-between gap-20 md:mt-20 md:flex">
+                {/* {Graphic} */}
+                <img 
+                    className="mx-auto"
+                    alt="benefits-page-graphic"
+                    src={BenefitsPageGraphic}
+                />
+
+                {/* {Description} */}
+                <div>
+                    {/* {title} */}
+                    <div className="relative">
+                        <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
+                            {/* {image is behind the text} */}
+                            <HText>
+                                MILLIONS OF HAPPY MEMBERS GETTIG{" "}
+                                <span className="text-primary-500">FIT</span>
+                            </HText>
+                        </div>
+                    </div>
+
+                    {/* {description} */}
+                    <div>
+                        <p className="my-5">
+                            Don't wait to start your fitness journey with us. Whether you're new to exercise or a seasoned 
+                            fitness enthusiast, our fitness center is the perfect place to achieve your goals. 
+                            Join the millions of happy members who have already experienced the positive impact of our facility.
+
+                        </p>
+                            
+                        <p className="mb-5">
+                            Take the first step today and discover the joy of getting fit, staying healthy, 
+                            and reaching your full potential. We can't wait to welcome you to our fitness center family!
+                            Contact us now to get started on your path to a happier and healthier you.
+                        </p>
+                    </div>
+
+                    {/* {Button} */}
+                    <div className="relative mt-16">
+                        <div className="before:absolute before:-top-20 before:right-40 before:z-[1] before:content-sparkles">
+                            <ActionButton setSelectedPage={setSelectedPage}>
+                                Join Now
+                            </ActionButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
         </motion.div>
     </section>
   )
