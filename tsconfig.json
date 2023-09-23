@@ -23,6 +23,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "prettier.config.cjs"],
+  "include": ["src", "prettier.config.cjs", "node_modules/react-hook-form"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -79,7 +79,6 @@ const Benefits = ({setSelectedPage}: Props) => {
             >
                 {benefits.map((benefit: BenefitType) => (
                     <Benefit 
-                        key={benefit.title}
                         icon={benefit.icon}
                         title={benefit.title}
                         description={benefit.description}
